@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows;
 using TAPWin;
+using System.IO;
 
 namespace TAPWinApp
 {
     public partial class Form1 : Form
     {
-
+        StreamWriter data = new StreamWriter("data.txt");
         private bool once;
 
         public Form1()
         {
             this.once = true;
+            TAPManager.Instance.SetTapInputMode(TAPInputMode.RawSensor(new RawSensorSensitivity()));
             InitializeComponent();
             
         }
@@ -43,6 +45,7 @@ namespace TAPWinApp
                 TAPManager.Instance.SetTapInputMode(TAPInputMode.RawSensor(new RawSensorSensitivity()));
                 TAPManager.Instance.Start();
                 
+
             }
             
             
@@ -54,12 +57,14 @@ namespace TAPWinApp
             this.LogLine(identifier + " tapped " + tapcode.ToString());
             
 
+
         }
 
         private void OnTapConnected(string identifier, string name, int fw)
         {
             this.LogLine(identifier + " connected. (" + name + ", fw " + fw.ToString() + ")");
             TAPManager.Instance.SetTapInputMode(TAPInputMode.RawSensor(new RawSensorSensitivity()));
+
         }
 
         private void OnTapDisconnected(string identifier)
@@ -102,32 +107,17 @@ namespace TAPWinApp
         }
 
         private void OnRawSensorDataReceieved(string identifier, RawSensorData rsData)
-        {
-            // RawSensorData has a timestamp, type and an array of points(x,y,z)
-            if (rsData.type == RawSensorDataType.Device) {
-                Point3 thumb = rsData.GetPoint(RawSensorData.indexof_DEV_THUMB);
-                
-                this.LogLine("Data: " + identifier + ", Thumb code: " + rsData.GetPoint(RawSensorData.indexof_DEV_THUMB));
-                this.LogLine("Data: " + identifier + ", index code: " + rsData.GetPoint(RawSensorData.indexof_DEV_INDEX));
-                this.LogLine("Data: " + identifier + ", middle code: " + rsData.GetPoint(RawSensorData.indexof_DEV_MIDDLE));
-                this.LogLine("Data: " + identifier + ", pinky code: " + rsData.GetPoint(RawSensorData.indexof_DEV_PINKY));
-                this.LogLine("Data: " + identifier + ", ring code: " + rsData.GetPoint(RawSensorData.indexof_DEV_RING));
-                this.LogLine("Data: " + identifier + ", accelerometer code: " + rsData.GetPoint(RawSensorData.indexof_IMU_ACCELEROMETER));
-                this.LogLine("Data: " + identifier + ", gyrob code: " + rsData.GetPoint(RawSensorData.indexof_IMU_GYRO));
+        {      
+            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_THUMB + "," + rsData.GetPoint(RawSensorData.indexof_DEV_THUMB));
+            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_INDEX + "," + rsData.GetPoint(RawSensorData.indexof_DEV_INDEX));
+            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_MIDDLE + "," + rsData.GetPoint(RawSensorData.indexof_DEV_MIDDLE));
+            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_RING + "," + rsData.GetPoint(RawSensorData.indexof_DEV_RING));
+            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_PINKY + "," + rsData.GetPoint(RawSensorData.indexof_DEV_PINKY));
+            data.WriteLine(rsData.timestamp + "," + "5" + "," + rsData.GetPoint(RawSensorData.indexof_IMU_GYRO));
+            data.WriteLine(rsData.timestamp + "," + "6" + "," + rsData.GetPoint(RawSensorData.indexof_IMU_ACCELEROMETER));
 
-                // Etc.. use indexes: RawSensorData.indexof_DEV_THUMB, RawSensorData.indexof_DEV_INDEX, RawSensorData.indexof_DEV_MIDDLE, RawSensorData.indexof_DEV_RING, RawSensorData.indexof_DEV_PINKY
-            }
-            else if (rsData.type == RawSensorDataType.IMU)
-            {
-                Point3 gyro = rsData.GetPoint(RawSensorData.indexof_IMU_GYRO);
-                if (gyro != null)
-                {
-                    // gyro.x, gyro.y, gyro.z ...
-                }
-                // Etc.. use indexes: RawSensorData.indexof_IMU_GYRO, RawSensorData.indexof_IMU_ACCELEROMETER
-            }
-            
-            // Please refer readme.md for more information
+ 
+
         }
     }
 }
