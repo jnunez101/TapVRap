@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Windows;
 using TAPWin;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace TAPWinApp
 {
@@ -19,6 +20,7 @@ namespace TAPWinApp
         private bool once;
         StreamWriter data = new StreamWriter("data.txt");
         private int counter;
+        private bool triggerThumb = false;
 
 
 
@@ -95,7 +97,15 @@ namespace TAPWinApp
             });
             
         }
-
+        [DllImport("user32.dll")]
+        public static extern void keybd_event(byte bvk, byte bScan, uint dwFlags, uint dwExtraIfo);
+        const int VK_Z = 0x5A;
+        const int VK_Left = 0x25;
+        const int VK_Right = 0x27;
+        const int VK_C = 0x43;
+        const int VK_X = 0x58;
+        const int VKSPACE = 0x20;
+        const int KEYEVENTF_EXTENDEDKEY = 0x0001;
         private void button1_Click(object sender, EventArgs e)
         {
             TAPManager.Instance.Vibrate(new int[] { 100, 300, 100 });
@@ -113,7 +123,7 @@ namespace TAPWinApp
 
         private void OnRawSensorDataReceieved(string identifier, RawSensorData rsData)
         {
-            
+            double thumbTotal;
             data.AutoFlush = true;
             Point3 thumb = rsData.GetPoint(RawSensorData.indexof_DEV_THUMB);
             Point3 index = rsData.GetPoint(RawSensorData.indexof_DEV_INDEX);
@@ -130,11 +140,27 @@ namespace TAPWinApp
             {
                 try
                 {
-                    data.WriteLine(RawSensorData.indexof_DEV_THUMB + "," + thumb.x + "," + thumb.y + "," + thumb.z);
-                    data.WriteLine(RawSensorData.indexof_DEV_INDEX + "," + index.x + "," + index.y + "," + index.z);
-                    data.WriteLine(RawSensorData.indexof_DEV_MIDDLE + "," + middle.x + "," + middle.y + "," + middle.z);
-                    data.WriteLine(RawSensorData.indexof_DEV_RING + "," + ring.x + "," + ring.y + "," + ring.z);
-                    data.WriteLine(RawSensorData.indexof_DEV_PINKY + "," + pinky.x + "," + pinky.y + "," + pinky.z);
+                    thumbTotal = thumb.x + thumb.y + thumb.z;
+
+                    //press space
+                        
+                        if (triggerThumb)
+                        {
+                            triggerThumb = false;
+                        }
+                        else if(thumbTotal >= 300000){
+                            keybd_event((byte)VKSPACE, 0, KEYEVENTF_EXTENDEDKEY | 0, 0);
+                            triggerThumb = true;
+                            //triggerThumb = true;
+
+                        }
+
+                    
+                    //data.WriteLine(RawSensorData.indexof_DEV_THUMB + "," + thumb.x + "," + thumb.y + "," + thumb.z);
+                    //data.WriteLine(RawSensorData.indexof_DEV_INDEX + "," + index.x + "," + index.y + "," + index.z);
+                    //data.WriteLine(RawSensorData.indexof_DEV_MIDDLE + "," + middle.x + "," + middle.y + "," + middle.z);
+                    //data.WriteLine(RawSensorData.indexof_DEV_RING + "," + ring.x + "," + ring.y + "," + ring.z);
+                    //data.WriteLine(RawSensorData.indexof_DEV_PINKY + "," + pinky.x + "," + pinky.y + "," + pinky.z);
                 }
                 catch (NullReferenceException e)
                 {
