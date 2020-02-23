@@ -8,37 +8,37 @@ namespace ControlTest
     {
         public int determineButtonPressed(var input)
         {
-            string button;
+            System.Windows.Input.Key button;
             if ()
             {
                 // Q = Trigger + A
-                button = "Q";
+                button.Key = Key.Q;
             }
             else if ()
             {
                 // W = Trigger + B
-                button = "W";
+                button.Key = Key.W;
             }
             else if ()
             {
                 // E = Trigger
-                button = "E";
+                button.Key = Key.E;
             }
             else if ()
             {
-                button = "A";
+                button.Key = Key.A;
             }
             else if ()
             {
-                button = "B";
+                button.Key = Key.B;
             }
             else if ()
             {
-                button = "X";
+                button.Key = Key.X;
             }
             else if ()
             {
-                button = "Y";
+                button.Key = Key.Y;
             }
             return button;
         }
