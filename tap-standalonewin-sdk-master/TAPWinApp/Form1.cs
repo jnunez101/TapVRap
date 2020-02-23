@@ -137,7 +137,7 @@ namespace TAPWinApp
         {
             // Get a handle to the Calculator application. The window class
             // and window name were obtained using the Spy++ tool.
-            IntPtr gameHandle = FindWindow(null, "Geometry Dash");
+            IntPtr gameHandle = FindWindow(null, "Untitled - Notepad");
             Console.WriteLine("1");
             
             // Verify that Calculator is a running process.
@@ -147,7 +147,7 @@ namespace TAPWinApp
                 return;
             }
             SetForegroundWindow(gameHandle);
-            SendKeys.SendWait("0x20");
+            SendKeys.SendWait(" ");
             
         }
 
@@ -179,7 +179,7 @@ namespace TAPWinApp
                             triggerThumb = false;
                         }
                         else if(thumbTotal >= 250000){
-                            //button1_Click("uwu", EventArgs.Empty);
+                            button1_Click("uwu", EventArgs.Empty);
                             
                             triggerThumb = true;
                             //triggerThumb = true;
