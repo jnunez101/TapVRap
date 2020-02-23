@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Windows.forms;
 
 namespace ControlTest
 {
@@ -14,12 +15,12 @@ namespace ControlTest
 
             if (z == true)
             {
-                object q = Debug.WriteLine("Button is Pressed");
+                MessageBox.Show("Button is Pressed");
                 return q;
             }
             else
             {
-                object p = Debug.WriteLine("Button is Not Pressed");
+                MessageBox.Show("Button is Not Pressed");
                 return p;
             }
 
