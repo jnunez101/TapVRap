@@ -9,6 +9,6 @@
     <Import_RootNamespace>ControlTest</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)buttons.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)buttonpress.cs" />
   </ItemGroup>
 </Project>
