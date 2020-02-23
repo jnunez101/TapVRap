@@ -4,39 +4,39 @@ using System.Text;
 
 namespace ControlTest
 {
-    class buttonpress
+    class determineButtonPressed
     {
-        public int determineButtonPressed(var input)
+        public int buttonPressed(var input)
         {
             System.Windows.Input.Key button;
-            if ()
+            if (input == 1)
             {
                 // Q = Trigger + A
                 button.Key = Key.Q;
             }
-            else if ()
+            else if (input == 2)
             {
                 // W = Trigger + B
                 button.Key = Key.W;
             }
-            else if ()
+            else if (input == 3)
             {
                 // E = Trigger
                 button.Key = Key.E;
             }
-            else if ()
+            else if (input == 4)
             {
                 button.Key = Key.A;
             }
-            else if ()
+            else if (input == 5)
             {
                 button.Key = Key.B;
             }
-            else if ()
+            else if (input == 6)
             {
                 button.Key = Key.X;
             }
-            else if ()
+            else if (input == 7)
             {
                 button.Key = Key.Y;
             }

@@ -12,5 +12,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)keyboardBinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)determineButtonPressed.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)pressButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)testcode.cs" />
   </ItemGroup>
 </Project>
