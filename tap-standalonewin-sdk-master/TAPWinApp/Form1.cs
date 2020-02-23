@@ -15,8 +15,12 @@ namespace TAPWinApp
 {
     public partial class Form1 : Form
     {
-        StreamWriter data = new StreamWriter("data.txt");
+        
         private bool once;
+        StreamWriter data = new StreamWriter("data.txt");
+        private int counter;
+
+
 
         public Form1()
         {
@@ -43,7 +47,7 @@ namespace TAPWinApp
 
 
                 TAPManager.Instance.SetTapInputMode(TAPInputMode.RawSensor(new RawSensorSensitivity()));
-                
+                counter = 0;
                 TAPManager.Instance.Start();
                 
 
@@ -108,16 +112,41 @@ namespace TAPWinApp
         }
 
         private void OnRawSensorDataReceieved(string identifier, RawSensorData rsData)
-        {      
-            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_THUMB + "," + rsData.GetPoint(RawSensorData.indexof_DEV_THUMB));
-            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_INDEX + "," + rsData.GetPoint(RawSensorData.indexof_DEV_INDEX));
-            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_MIDDLE + "," + rsData.GetPoint(RawSensorData.indexof_DEV_MIDDLE));
-            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_RING + "," + rsData.GetPoint(RawSensorData.indexof_DEV_RING));
-            data.WriteLine(rsData.timestamp + "," + RawSensorData.indexof_DEV_PINKY + "," + rsData.GetPoint(RawSensorData.indexof_DEV_PINKY));
-            data.WriteLine(rsData.timestamp + "," + "5" + "," + rsData.GetPoint(RawSensorData.indexof_IMU_GYRO));
-            data.WriteLine(rsData.timestamp + "," + "6" + "," + rsData.GetPoint(RawSensorData.indexof_IMU_ACCELEROMETER));
+        {
+            
+            data.AutoFlush = true;
+            Point3 thumb = rsData.GetPoint(RawSensorData.indexof_DEV_THUMB);
+            Point3 index = rsData.GetPoint(RawSensorData.indexof_DEV_INDEX);
+            Point3 middle = rsData.GetPoint(RawSensorData.indexof_DEV_MIDDLE);
+            Point3 ring = rsData.GetPoint(RawSensorData.indexof_DEV_RING);
+            Point3 pinky = rsData.GetPoint(RawSensorData.indexof_DEV_PINKY);
 
- 
+            if (counter == 10)
+            {
+                counter = 0;
+            }
+     
+            if (counter == 0)
+            {
+                try
+                {
+                    data.WriteLine(RawSensorData.indexof_DEV_THUMB + "," + thumb.x + "," + thumb.y + "," + thumb.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_INDEX + "," + index.x + "," + index.y + "," + index.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_MIDDLE + "," + middle.x + "," + middle.y + "," + middle.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_RING + "," + ring.x + "," + ring.y + "," + ring.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_PINKY + "," + pinky.x + "," + pinky.y + "," + pinky.z);
+                }
+                catch (NullReferenceException e)
+                {
+
+                }
+
+                data.Flush();
+            }
+            counter += 1;
+            
+            
+
 
         }
     }
