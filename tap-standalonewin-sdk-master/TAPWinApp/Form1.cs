@@ -43,6 +43,7 @@ namespace TAPWinApp
 
 
                 TAPManager.Instance.SetTapInputMode(TAPInputMode.RawSensor(new RawSensorSensitivity()));
+                
                 TAPManager.Instance.Start();
                 
 
