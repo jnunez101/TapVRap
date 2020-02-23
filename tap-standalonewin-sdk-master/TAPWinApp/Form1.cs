@@ -23,6 +23,17 @@ namespace TAPWinApp
         private bool triggerThumb = false;
 
 
+        [DllImport("USER32.DLL", CharSet = CharSet.Unicode)]
+        public static extern IntPtr FindWindow(string lpClassName,
+            string lpWindowName);
+        [DllImport("USER32.DLL")]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+
+        [DllImport("user32.dll")]
+        static extern IntPtr GetForegroundWindow();
+
+        
 
         public Form1()
         {
@@ -50,6 +61,7 @@ namespace TAPWinApp
 
                 TAPManager.Instance.SetTapInputMode(TAPInputMode.RawSensor(new RawSensorSensitivity()));
                 counter = 0;
+                //button1.Click += new EventHandler(button1_Click);
                 TAPManager.Instance.Start();
                 
 
@@ -106,10 +118,10 @@ namespace TAPWinApp
         const int VK_X = 0x58;
         const int VKSPACE = 0x20;
         const int KEYEVENTF_EXTENDEDKEY = 0x0001;
-        private void button1_Click(object sender, EventArgs e)
-        {
-            TAPManager.Instance.Vibrate(new int[] { 100, 300, 100 });
-        }
+       // private void button1_Click(object sender, EventArgs e)
+       // {
+        //    TAPManager.Instance.Vibrate(new int[] { 100, 300, 100 });
+        //}
 
         private void OnAirGestured(string identifier, TAPAirGesture airGesture)
         {
@@ -121,7 +133,25 @@ namespace TAPWinApp
             Console.WriteLine("Changed AirGesture State " + identifier + "isInAirGestureState: " + isInAirGestureState.ToString());
         }
 
-        private void OnRawSensorDataReceieved(string identifier, RawSensorData rsData)
+        private void button1_Click(object sender, EventArgs e)
+        {
+            // Get a handle to the Calculator application. The window class
+            // and window name were obtained using the Spy++ tool.
+            IntPtr gameHandle = FindWindow(null, "Geometry Dash");
+            Console.WriteLine("1");
+            
+            // Verify that Calculator is a running process.
+            if (gameHandle == IntPtr.Zero)
+            {
+                MessageBox.Show("Calculator is not running.");
+                return;
+            }
+            SetForegroundWindow(gameHandle);
+            SendKeys.SendWait("0x20");
+            
+        }
+
+            private void OnRawSensorDataReceieved(string identifier, RawSensorData rsData)
         {
             double thumbTotal;
             data.AutoFlush = true;
@@ -139,7 +169,7 @@ namespace TAPWinApp
             if (counter == 0)
             {
                 try
-                {
+                {  
                     thumbTotal = thumb.x + thumb.y + thumb.z;
 
                     //press space
@@ -148,8 +178,9 @@ namespace TAPWinApp
                         {
                             triggerThumb = false;
                         }
-                        else if(thumbTotal >= 300000){
-                            keybd_event((byte)VKSPACE, 0, KEYEVENTF_EXTENDEDKEY | 0, 0);
+                        else if(thumbTotal >= 250000){
+                            button1_Click("uwu", EventArgs.Empty);
+                            
                             triggerThumb = true;
                             //triggerThumb = true;
 
