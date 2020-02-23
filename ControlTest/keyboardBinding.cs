@@ -6,5 +6,6 @@ namespace ControlTest
 {
     class Class1
     {
+
     }
 }

@@ -11,15 +11,18 @@ namespace ControlTest
             string button;
             if ()
             {
-                button = "Trigger + A";
+                // Q = Trigger + A
+                button = "Q";
             }
             else if ()
             {
-                button = "Trigger + B";
+                // W = Trigger + B
+                button = "W";
             }
             else if ()
             {
-                button = "Trigger";
+                // E = Trigger
+                button = "E";
             }
             else if ()
             {
