@@ -37,7 +37,7 @@ namespace ControlTest
             {
                 button = "Y";
             }
-
+            return button;
         }
     }
 }
