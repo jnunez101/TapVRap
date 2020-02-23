@@ -179,7 +179,7 @@ namespace TAPWinApp
                             triggerThumb = false;
                         }
                         else if(thumbTotal >= 250000){
-                            button1_Click("uwu", EventArgs.Empty);
+                            //button1_Click("uwu", EventArgs.Empty);
                             
                             triggerThumb = true;
                             //triggerThumb = true;
@@ -187,11 +187,11 @@ namespace TAPWinApp
                         }
 
                     
-                    //data.WriteLine(RawSensorData.indexof_DEV_THUMB + "," + thumb.x + "," + thumb.y + "," + thumb.z);
-                    //data.WriteLine(RawSensorData.indexof_DEV_INDEX + "," + index.x + "," + index.y + "," + index.z);
-                    //data.WriteLine(RawSensorData.indexof_DEV_MIDDLE + "," + middle.x + "," + middle.y + "," + middle.z);
-                    //data.WriteLine(RawSensorData.indexof_DEV_RING + "," + ring.x + "," + ring.y + "," + ring.z);
-                    //data.WriteLine(RawSensorData.indexof_DEV_PINKY + "," + pinky.x + "," + pinky.y + "," + pinky.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_THUMB + "," + thumb.x + "," + thumb.y + "," + thumb.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_INDEX + "," + index.x + "," + index.y + "," + index.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_MIDDLE + "," + middle.x + "," + middle.y + "," + middle.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_RING + "," + ring.x + "," + ring.y + "," + ring.z);
+                    data.WriteLine(RawSensorData.indexof_DEV_PINKY + "," + pinky.x + "," + pinky.y + "," + pinky.z);
                 }
                 catch (NullReferenceException e)
                 {
