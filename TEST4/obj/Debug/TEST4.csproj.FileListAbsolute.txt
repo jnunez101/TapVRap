@@ -7,3 +7,12 @@ C:\Users\Raymundo Corona\source\repos\TEST4\obj\Debug\TEST4.Properties.Resources
 C:\Users\Raymundo Corona\source\repos\TEST4\obj\Debug\TEST4.csproj.GenerateResource.cache
 C:\Users\Raymundo Corona\source\repos\TEST4\obj\Debug\TEST4.exe
 C:\Users\Raymundo Corona\source\repos\TEST4\obj\Debug\TEST4.pdb
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\bin\Debug\TEST4.exe.config
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\bin\Debug\TEST4.exe
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\bin\Debug\TEST4.pdb
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\obj\Debug\TEST4.csprojAssemblyReference.cache
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\obj\Debug\TEST4.Form1.resources
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\obj\Debug\TEST4.Properties.Resources.resources
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\obj\Debug\TEST4.csproj.GenerateResource.cache
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\obj\Debug\TEST4.exe
+C:\Users\edgar\HACKCU2020\TapVRap\TEST4\obj\Debug\TEST4.pdb
