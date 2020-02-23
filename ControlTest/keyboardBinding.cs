@@ -4,8 +4,19 @@ using System.Text;
 
 namespace ControlTest
 {
-    class Class1
+    class keyboardBinding
     {
-
+        public static bool IsKeyDown(System.Windows.Input.Key key)
+        {
+            if (Keyboard.IsKeyDown(Key.Return))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
-}
+
+    
