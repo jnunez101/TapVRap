@@ -1,0 +1,14 @@
+Get data from vector
+
+vector index(0) = (x,y,z) of Thumb location
+vector index(1) = (x,y,z) of index finger locationlocation
+vector index(2) = (x,y,z) of middle finger location
+vector index(3) = (x,y,z) of ring finger location
+vector index(4) = (x,y,z) of pinky finger location
+vector index(5) = (x,y,z) of gyroscope data
+vector index(6) = (x,y,z) of accelerometor
+REPEATS EVERY 7 ELEMNTS 
+
+Based on Vector info/positioning of fingers
+	Run according action from button press class
+	Represent 

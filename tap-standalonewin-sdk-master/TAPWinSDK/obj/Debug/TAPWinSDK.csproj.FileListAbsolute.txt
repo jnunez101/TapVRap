@@ -1,0 +1,14 @@
+E:\laure\TapStrap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWinSDK.csprojAssemblyReference.cache
+E:\laure\TapStrap\tap-standalonewin-sdk-master\TAPWinSDK\bin\Debug\TAPWin.dll
+E:\laure\TapStrap\tap-standalonewin-sdk-master\TAPWinSDK\bin\Debug\TAPWin.pdb
+E:\laure\TapStrap\tap-standalonewin-sdk-master\TAPWinSDK\bin\Debug\Windows.winmd
+E:\laure\TapStrap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWinSDK.csproj.CopyComplete
+E:\laure\TapStrap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWin.dll
+E:\laure\TapStrap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWin.pdb
+E:\laure\Documents\HackUTD\TapVRap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWinSDK.csprojAssemblyReference.cache
+E:\laure\Documents\HackUTD\TapVRap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWin.dll
+E:\laure\Documents\HackUTD\TapVRap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWin.pdb
+E:\laure\Documents\HackUTD\TapVRap\tap-standalonewin-sdk-master\TAPWinSDK\bin\Debug\TAPWin.dll
+E:\laure\Documents\HackUTD\TapVRap\tap-standalonewin-sdk-master\TAPWinSDK\bin\Debug\TAPWin.pdb
+E:\laure\Documents\HackUTD\TapVRap\tap-standalonewin-sdk-master\TAPWinSDK\bin\Debug\Windows.winmd
+E:\laure\Documents\HackUTD\TapVRap\tap-standalonewin-sdk-master\TAPWinSDK\obj\Debug\TAPWinSDK.csproj.CopyComplete
