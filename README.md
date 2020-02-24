@@ -15,3 +15,13 @@ Look into the arduino game libraries.
 Look into the pyvjoy module in python.  
 Make a linux fork of the python SDK so I can actually develop something to work for me D:  
 
+# Plan of action
+Being the linux user I am, I will make this work on linux first.
+Step one(Hard): Get raw data in linux  
+Step two(easierByComparison): look at the data again and set up good custom gestures
+Step Three(easiest): Tie those gestures to certain in game actions
+Step four(hardest): Play Hollow Knight and be good at the game with hand motions
+
+# Steps for Step one
+Fork Python-tap-sdk and add linux support......yeah....oof 
+
