@@ -24,4 +24,6 @@ Step four(hardest): Play Hollow Knight and be good at the game with hand motions
 
 # Steps for Step one
 Fork Python-tap-sdk and add linux support......yeah....oof 
+Here is my progress with that....
+https://github.com/jnunez101/tap-python-sdk
 
