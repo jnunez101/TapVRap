@@ -17,7 +17,7 @@ Make a linux fork of the python SDK so I can actually develop something to work 
 Set up games to work
 Integrate 3 massive formulas to determine position in 3D space
 
-#Things to do with the Data
+# Things to do with the Data
 Clean up noise data....
 The accelerometers (spelling it different every time :p) will be spitting out a lot of data.
 The human hand is never perfectly still so there will be a lot of noise that will lead to jitters in any game
